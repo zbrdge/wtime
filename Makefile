@@ -18,10 +18,10 @@ install: all
 		for i in ${BIN}; do \
 			chmod 755 ${PREFIX}/bin/`basename $$i`; \
 		done
-		${MKDIR} -p ${PREFIX}/man1
-		${CP} ${MAN1} ${PREFIX}/man1
+		${MKDIR} -p ${PREFIX}/man/man1
+		${CP} ${MAN1} ${PREFIX}/man/man1
 		for i in ${MAN1}; do \
-			chmod 444 ${PREFIX}/man1/`basename $$i`; \
+			chmod 444 ${PREFIX}/man/man1/`basename $$i`; \
 		done
 
 uninstall:
@@ -29,5 +29,5 @@ uninstall:
 			${RM} -f ${PREFIX}/bin/`basename $$i`; \
 		done
 		for i in ${MAN1}; do \
-			${RM} -f ${PREFIX}/man1/`basename $$i`; \
+			${RM} -f ${PREFIX}/man/man1/`basename $$i`; \
 		done
