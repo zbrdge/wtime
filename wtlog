@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Shell script to wrap 'wtime' and add work description files
+if [ "$1" == "" ] || [ "$2" == "" ]; then
+  echo "Usage: $0 <task name> <description>"
+	exit 1;
+else
+	if [ ! -d ~/.wtimed ] || [ ! -s ~/.wtimed/$1 ]; then
+		echo "Either ~/.wtimed does not exist or the task '$1' does not exist."
+		exit 1
+	else
+		out="$(wtime -t $1 -c) $2"
+		if [ $? == 1 ]; then
+			exit 1
+		else
+			echo $out >> ~/.wtimed/$1.desc
+		fi
+	fi
+fi

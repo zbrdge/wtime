@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
         case 's':
             if (prev_state != STARTED)
                 fprintf(stderr, "We are not counting.\n");
-            else
+						else
                 stop_counting(fd);
             break;
         case 'r':
@@ -190,9 +190,10 @@ int main(int argc, char *argv[])
             print_report(fd, rstart, rend);
             break;
         case 'c':
-            if (prev_state != STARTED)
+            if (prev_state != STARTED) {
                 fprintf(stderr, "We are not counting.\n");
-            else
+								exit(EXIT_FAILURE);
+						} else
                 print_elapsed(fd);
             break;
         default:

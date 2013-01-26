@@ -1,7 +1,7 @@
 include config.mk
 
 SOURCES	= wtime.c
-BIN = wtime
+BIN = wtime wtlog
 MAN1 = wtime.1
 
 all: wtime
