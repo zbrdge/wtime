@@ -9,7 +9,7 @@ else
 		echo "Either ~/.wtimed does not exist or the task '$1' does not exist."
 		exit 1
 	else
-		out="$(wtime -t $1 -c) $2"
+		out="$(date +%s) $2"
 		if [ $? == 1 ]; then
 			exit 1
 		else

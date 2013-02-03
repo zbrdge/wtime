@@ -9,7 +9,7 @@ else
 		echo "Either ~/.wtimed does not exist or the task '$1' does not exist."
 		exit 1
 	else
-		out=`python -c "print  $(wtime -t $1 -r)/60.0/60.0"`
+		out=`python -c "print  $(wtime -t $1 -r '01-01-1970')/60.0/60.0"`
 	  echo -n "Hours worked: $out"	
 	fi
 fi
