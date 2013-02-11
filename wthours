@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Shell script to wrap 'wtime' and report hours worked
-if [ "$1" == "" ]; then
+if [ -z "$1" ]; then
   echo "Usage: $0 <task name>"
 	exit 1;
-else
+  else
 	if [ ! -d ~/.wtimed ] || [ ! -s ~/.wtimed/$1 ]; then
 		echo "Either ~/.wtimed does not exist or the task '$1' does not exist."
 		exit 1

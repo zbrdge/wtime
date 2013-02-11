@@ -10,7 +10,7 @@ wtime:	wtime.c
 		$(CC) $(CFLAGS) $< -o $@
 
 clean:
-		rm -f *.o
+		rm -f wtime *.o
 
 install: all
 		${MKDIR} -p ${PREFIX}/bin
