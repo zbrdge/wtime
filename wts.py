@@ -12,7 +12,8 @@ import importlib, sys
 # Using importlib now, we specify which client configuration
 # file to use, using a simple naming convention:
 if len(sys.argv) > 1:
-    importlib.import_module("wts_config_"+sys.argv[1], '*')
+    wts_config = importlib.import_module("wts_config_"+sys.argv[1])
+    config = getattr(wts_config, 'config')
 else:
     from wts_config import *
 
