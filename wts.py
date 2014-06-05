@@ -12,7 +12,9 @@ import importlib, sys
 # Using importlib now, we specify which client configuration
 # file to use, using a simple naming convention:
 if sys.argv[1]:
-    from importlib.import_module("wts_config_"+sys.argv[1]) import *
+    importlib.import_module("wts_config_"+sys.argv[1], '*')
+else:
+    from wts_config import *
 
 if __name__ == "__main__":
 
@@ -116,9 +118,13 @@ Work Notes
        total += daytot
 
     rate = float(config['{RATE}'])
+    flat_rate = float(config['{FLAT_RATE}'])
     total = total/60.0/60.0
     final = "{0:.2f}".format(total*rate)
-    total = "{0:.2f}".format(total)
+    if flat_rate != 0:
+      total = "{0:.2f}".format(total)
+    else
+      total = "{0:.2f}".format(flat_rate)
 
     worklog += "---\n" + "Total Hours Worked: "+total
 
