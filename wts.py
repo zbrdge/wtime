@@ -124,9 +124,10 @@ Work Notes
     total = total/60.0/60.0
     if flat_rate == float("0.00"):
       final = "{0:.2f}".format(total*rate)
+      total = "{0:.2f}".format(total)
     else:
-      total = "0.00"
       final = "{0:.2f}".format(flat_rate)
+      total = "0.00"
 
     worklog += "---\n" + "Total Hours Worked: "+total
 
