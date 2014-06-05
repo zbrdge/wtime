@@ -122,11 +122,10 @@ Work Notes
     rate = float(config['{RATE}'])
     flat_rate = float(config['{FLAT_RATE}'])
     total = total/60.0/60.0
-    final = "{0:.2f}".format(total*rate)
     if flat_rate == float("0.00"):
-      total = "{0:.2f}".format(total)
+      final = "{0:.2f}".format(total*rate)
     else:
-      total = "{0:.2f}".format(flat_rate)
+      final = "{0:.2f}".format(flat_rate)
 
     worklog += "---\n" + "Total Hours Worked: "+total
 
