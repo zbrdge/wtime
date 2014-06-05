@@ -14,12 +14,13 @@ import importlib, sys
 if len(sys.argv) > 1:
     wts_config = importlib.import_module("wts_config_"+sys.argv[1])
     config = getattr(wts_config, 'config')
+    md = open("/tmp/"+sys.argv[1]+".md", "w")
 else:
     from wts_config import *
+    md = open("/tmp/invoice.md", "w")
 
 if __name__ == "__main__":
 
-    md = open("/tmp/invoice.md", "w")
 
     mdtpl = "Contracting Services<br />{START} to {FINISH}"
     mdtpl += """
@@ -122,7 +123,7 @@ Work Notes
     flat_rate = float(config['{FLAT_RATE}'])
     total = total/60.0/60.0
     final = "{0:.2f}".format(total*rate)
-    if flat_rate != 0:
+    if flat_rate == float("0.00"):
       total = "{0:.2f}".format(total)
     else:
       total = "{0:.2f}".format(flat_rate)
