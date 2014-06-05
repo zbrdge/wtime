@@ -7,7 +7,12 @@
 
 from datetime import datetime
 import string 
-from wts_config import *
+import importlib, sys
+
+# Using importlib now, we specify which client configuration
+# file to use, using a simple naming convention:
+if sys.argv[1]:
+    from importlib.import_module("wts_config_"+sys.argv[1]) import *
 
 if __name__ == "__main__":
 
