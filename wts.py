@@ -11,7 +11,7 @@ import importlib, sys
 
 # Using importlib now, we specify which client configuration
 # file to use, using a simple naming convention:
-if sys.argv[1]:
+if len(sys.argv) > 1:
     importlib.import_module("wts_config_"+sys.argv[1], '*')
 else:
     from wts_config import *
@@ -123,7 +123,7 @@ Work Notes
     final = "{0:.2f}".format(total*rate)
     if flat_rate != 0:
       total = "{0:.2f}".format(total)
-    else
+    else:
       total = "{0:.2f}".format(flat_rate)
 
     worklog += "---\n" + "Total Hours Worked: "+total
